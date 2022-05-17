@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import DefaultLayout from './layout/DefaultLayout/DefaultLayout';
+import { Route, Routes, useLocation } from 'react-router';
+import { PAGE_PATH } from './common/constList';
+import SigninPage from './page/SigninPage/SigninPage';
+import NotFoundPage from './page/NotFoundPage/NotFoundPage';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default function App(): JSX.Element {
+  const location = useLocation();
+  const pageList = Object.values(PAGE_PATH).map(path => `/${path}`);
 
-export default App;
+  if (location.pathname === `/${PAGE_PATH.signin}`) {
+    return <Routes><Route path={`/${PAGE_PATH.signin}`} element={<SigninPage />} /></Routes>;
+  }
+  if (!pageList.find(page => page === location.pathname)) {
+    return <Routes><Route path="/*" element={<NotFoundPage />} /></Routes>;
+  }
+  return <DefaultLayout />;
+
+}

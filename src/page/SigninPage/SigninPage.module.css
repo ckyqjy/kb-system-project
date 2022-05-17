@@ -1,0 +1,139 @@
+.inputId {
+  width: 325px !important;
+  height: 51px !important;
+  margin: 45px 19px 20px 50px !important;
+  border-radius: 6px !important;
+  background-color: #f5f7fa !important;
+  position: absolute;
+}
+
+.inputPw {
+  width: 325px !important;
+  height: 51px !important;
+  margin: 105px 19px 115px 50px !important;
+  border-radius: 6px !important;
+  background-color: #f5f7fa !important;
+  position: absolute;
+}
+
+.btn {
+  width: 131px;
+  height: 121px;
+  margin: 40px 0px 0px 395px;
+  padding: 47px 37px 54px 36px;
+  border-radius: 10px;
+  background-image: linear-gradient(to top, #0082C8, #0082C8);
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  border: 0px;
+  color: #fff;
+  position: absolute;
+}
+
+.bi {
+  width: 419px;
+  height: 10px;
+  margin: 0px 0px 0px 49px;
+  object-fit: contain;
+  position: absolute;
+}
+
+.alertCircleOutline {
+  width: 20px;
+  height: 21px;
+  margin: 170px 0px 0px 270px;
+  position: absolute;
+}
+
+.findPw {
+  width: 82px;
+  height: 15px;
+  margin: 170px 0px 0px 295px;
+  font-family: NotoSansKR;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.8;
+  letter-spacing: -0.3px;
+  text-align: right;
+  color: #666;
+  position: absolute;
+}
+
+.components {
+  width: 585px;
+  height: 665px;
+  margin: auto;
+}
+
+.box {
+  width: 585px;
+  height: 365px;
+  margin: 19% 0% 0% 0%;
+  padding: 61px 6px 48px 5px;
+  border-radius: 50px;
+  box-shadow: 0px 5px 10px 0 rgba(195, 199, 204, 0.3);
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+.background {
+  background-image: url('../../assets/img/login-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 102%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  margin-left: -1%;
+}
+
+.copyright {
+  width: 323px;
+  height: 13px;
+  opacity: 0.3;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.77;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgba(255, 255, 255);
+  margin: 25px 0% 0% 120px;
+  position: absolute;
+}
+
+.contact1 {
+  width: 379px;
+  height: 17px;
+  margin: 310px 54px 0 50px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: -0.32px;
+  text-align: left;
+  color: #666;
+  position: absolute;
+}
+.contact2 .textStyle1 .textStyle2 {
+  font-family: NotoSansKR;
+}
+
+a:link {
+  color: #666;
+}
+
+.inputItem {
+  padding-top: 15px;
+}
