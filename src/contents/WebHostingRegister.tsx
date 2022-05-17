@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import styles from './NotFoundPage.module.css';
-import { Form, Input, InputNumber, Button } from 'antd';
+import { Form, Input, InputNumber, Button, Select } from 'antd';
 
 export default function WebHostingRegister(): JSX.Element {
     const layout = {
-        labelCol: { span: 1 },
+        labelCol: { span: 2 },
         wrapperCol: { span: 8 },
         };
     
@@ -30,21 +30,29 @@ export default function WebHostingRegister(): JSX.Element {
     <>
         <h2>웹 호스팅 신청서</h2>
         <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-        <Form.Item name={['user', 'name']} label="Name" rules={[{ required: true }]}>
+        <Form.Item name={['user', 'name']} label="신청인" rules={[{ required: true }]}>
             <Input />
         </Form.Item>
-        <Form.Item name={['user', 'email']} label="Email" rules={[{ type: 'email' }]}>
+        <Form.Item label="서버명" rules={[{ required: true }]}>
             <Input />
         </Form.Item>
-        <Form.Item name={['user', 'age']} label="Age" rules={[{ type: 'number', min: 0, max: 99 }]}>
-            <InputNumber />
+        <Form.Item label="서버 선택">
+        <Select defaultValue={"Apache"}>
+          <Select.Option value="Apache">Apache</Select.Option>
+          <Select.Option value="Nginx">Nginx</Select.Option>
+        </Select>
         </Form.Item>
-        <Form.Item name={['user', 'website']} label="Website">
-            <Input />
+        <Form.Item label="개발 언어 선택">
+        <Select defaultValue={"PHP"}>
+          <Select.Option value="PHP">PHP</Select.Option>
+          <Select.Option value="Javascript">Javascript</Select.Option>
+        </Select>
         </Form.Item>
-        <Form.Item name={['user', 'introduction']} label="Introduction">
-            <Input.TextArea />
-        </Form.Item>
+        <Form.Item label="DB 선택">
+        <Select defaultValue={"MariaDB"}>
+          <Select.Option value="MariaDB">MariaDB</Select.Option>
+        </Select>
+      </Form.Item>
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 1 }}>
             <Button type="primary" htmlType="submit">
             Submit
