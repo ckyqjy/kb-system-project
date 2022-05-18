@@ -49,6 +49,7 @@ return (
   <Layout>
     <Header style={{ opacity: '0.9', backgroundImage: "url(" + "https://pixabay.com/get/g6c9c6b79e6a8b71e1f0e9baeaa1e2aae8c9639ebec6642e80034647cc55d7556a28d22b831c75e44e0d8daf5feea56652594404884234378e98b9e432ab7174a_1920.png" + ")", height: '300px', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}  className="header">
       {/* <Menu style={{backgroundColor: "rgba(255, 255, 255, 0.0)", marginTop: '200px', color: 'white', fontWeight: 'bolder', fontSize: '20px'}}  mode="horizontal" defaultSelectedKeys={['2']} items={items1} /> */}
+      <div style={{opacity: '0.75', marginTop: '210px', color: 'white', fontWeight: 'bolder', fontSize: '45px'}} >KB 네트워크</div>
     </Header>
     <Layout>
       <Sider width={200} className="site-layout-background">
