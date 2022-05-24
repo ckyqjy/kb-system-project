@@ -1,32 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router";
-import { Form, Input, InputNumber, Button, Select, Row, Col, Card } from "antd";
+import React, { useState } from "react";
 import axios from "axios";
+import { Card, Row, Col } from "antd";
 
-export default function WebStorageRegister(): JSX.Element {
-  const [form] = Form.useForm<FormState>();
-  const layout = {
-    labelCol: { span: 0 },
-    wrapperCol: { span: 8 },
-  };
-
-  interface FormState {
-    username: string;
-    domainname: string;
-    class1: string;
-    class2: string;
-    ipaddr: string;
-    description: string;
-  }
-
-  const onClick = () => {
-    const { username, domainname, ipaddr } = form.getFieldsValue();
-    const url = `${process.env.REACT_APP_URL}/dnsreg/${domainname}`;
-    axios.get(url).then((res) => res.data);
-  };
-
-  const gra1 = "#fff0e1";
-  const gra2 = "#fff8f0";
+export default function DNSRegister(): JSX.Element {
+  const [name, setName] = useState("");
+  const gra1 = "#007ec9";
+  const gra2 = "#0099c6";
 
   return (
     <>
@@ -39,25 +18,77 @@ export default function WebStorageRegister(): JSX.Element {
       >
         <div
           style={{
-            color: "#333",
+            color: "white",
             fontWeight: "bolder",
             fontSize: "30px",
             textAlign: "center",
             paddingTop: "30px",
           }}
         >
-          리눅스 웹 스토리지
+          도메인 등록
         </div>
         <div
           style={{
-            color: "#333",
-            fontWeight: "bolder",
-            fontSize: "20px",
-            textAlign: "center",
+            paddingLeft: "35%",
+            paddingTop: "20px",
+            display: "flex",
           }}
         >
-          빠른 속도와 풍부한 용량을 제공하는 KB 64bit 리눅스 스토리지를
-          이용해보세요.
+          <div style={{}}>
+            <button
+              style={{
+                fontWeight: "bolder",
+                fontSize: "30px",
+                height: "100px",
+                width: "100px",
+                backgroundColor: "white",
+                border: "1px",
+                borderRight: "0px",
+                borderStyle: "solid",
+                borderColor: "#dddddd",
+              }}
+            >
+              www.
+            </button>
+            <input
+              value={name}
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setName(e.currentTarget.value);
+              }}
+              style={{
+                fontSize: "30px",
+                height: "100px",
+                width: "500px",
+                display: "inline",
+                border: "1px",
+                borderLeft: "0px",
+                borderStyle: "solid",
+                borderColor: "#dddddd",
+              }}
+              placeholder="등록하실 도메인을 입력해주세요"
+            />
+            <button
+              onClick={() => {
+                const url = `${process.env.REACT_APP_URL}/dnsreg/${name}`;
+                axios.get(url).then((res) => res.data);
+              }}
+              style={{
+                fontSize: "30px",
+                fontWeight: "bolder",
+                height: "100px",
+                width: "100px",
+                display: "inline-block",
+                backgroundColor: "#434c53",
+                border: "1px",
+                borderStyle: "solid",
+                borderColor: "#dddddd",
+                color: "white",
+                cursor: "pointer",
+              }}
+            >
+              등록
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -68,7 +99,7 @@ export default function WebStorageRegister(): JSX.Element {
           textAlign: "center",
         }}
       >
-        스토리지 등록 할인 이벤트 / 쿠폰코드 KBEVENT
+        도메인 등록 할인 이벤트 / 쿠폰코드 KBEVENT
       </div>
       <div style={{ padding: "50px" }}>
         <Row>
@@ -92,7 +123,7 @@ export default function WebStorageRegister(): JSX.Element {
                     fontWeight: "bold",
                   }}
                 >
-                  웹 1G
+                  국제 도메인
                 </div>
               }
               style={{
@@ -116,20 +147,10 @@ export default function WebStorageRegister(): JSX.Element {
                 </div>
                 <br />
                 <button style={{ backgroundColor: "orange", border: "none" }}>
-                  시작가 50% 할인
+                  쿠폰 할인가
                 </button>
               </div>
-              <div style={{ paddingTop: "20px" }}>
-                트래픽 <span style={{ color: "#f46d00" }}>30G</span>일
-                <span style={{ color: "#f46d00" }}>1G</span>
-              </div>
-              <div>
-                디스크 <span style={{ color: "#f46d00" }}>500M</span>
-              </div>
-              <div>
-                <span style={{ color: "#f46d00" }}>DB</span> 무제한
-                <div style={{ height: "40px" }}></div>
-              </div>
+              <div style={{ height: "40px" }}></div>
             </Card>
           </Col>
           <Col span={4}>
@@ -148,7 +169,7 @@ export default function WebStorageRegister(): JSX.Element {
                     fontWeight: "bold",
                   }}
                 >
-                  웹 3G
+                  국내 도메인
                 </div>
               }
               style={{
@@ -172,20 +193,10 @@ export default function WebStorageRegister(): JSX.Element {
                 </div>
                 <br />
                 <button style={{ backgroundColor: "orange", border: "none" }}>
-                  시작가 50% 할인
+                  쿠폰 할인가
                 </button>
               </div>
-              <div style={{ paddingTop: "20px" }}>
-                트래픽 <span style={{ color: "#f46d00" }}>30G</span>일
-                <span style={{ color: "#f46d00" }}>1G</span>
-              </div>
-              <div>
-                디스크 <span style={{ color: "#f46d00" }}>500M</span>
-              </div>
-              <div>
-                <span style={{ color: "#f46d00" }}>DB</span> 무제한
-                <div style={{ height: "40px" }}></div>
-              </div>
+              <div style={{ height: "40px" }}></div>
             </Card>
           </Col>
           <Col span={4}>
@@ -204,7 +215,7 @@ export default function WebStorageRegister(): JSX.Element {
                     fontWeight: "bold",
                   }}
                 >
-                  웹 10G
+                  개인 도메인
                 </div>
               }
               style={{
@@ -228,20 +239,10 @@ export default function WebStorageRegister(): JSX.Element {
                 </div>
                 <br />
                 <button style={{ backgroundColor: "orange", border: "none" }}>
-                  시작가 50% 할인
+                  쿠폰 할인가
                 </button>
               </div>
-              <div style={{ paddingTop: "20px" }}>
-                트래픽 <span style={{ color: "#f46d00" }}>30G</span>일
-                <span style={{ color: "#f46d00" }}>1G</span>
-              </div>
-              <div>
-                디스크 <span style={{ color: "#f46d00" }}>500M</span>
-              </div>
-              <div>
-                <span style={{ color: "#f46d00" }}>DB</span> 무제한
-                <div style={{ height: "40px" }}></div>
-              </div>
+              <div style={{ height: "40px" }}></div>
             </Card>
           </Col>
           <Col span={2}></Col>
@@ -260,7 +261,12 @@ export default function WebStorageRegister(): JSX.Element {
         <div
           style={{ fontSize: "30px", paddingTop: "70px", fontWeight: "bolder" }}
         >
-          KB의 다양한 스토리지 서비스를 비교하고 선택하세요!
+          도메인 구매시 무제한 웹호스팅이 무료
+        </div>
+        <div style={{ fontSize: "15px", paddingTop: "40px" }}>
+          도메인 구매시 무제한 웹호스팅 무료 서비스를 이용하실 수 있습니다.
+          <br />
+          도메인 이용 기간 내에 추가 비용 없이 무료 이용이 가능합니다.
         </div>
         <div
           style={{
@@ -278,7 +284,7 @@ export default function WebStorageRegister(): JSX.Element {
               fontWeight: "bolder",
             }}
           >
-            스토리지 비교하기
+            무제한 웹호스팅 바로가기
           </button>
         </div>
       </div>
@@ -295,34 +301,12 @@ export default function WebStorageRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          리눅스 스토리지 서비스란?
-        </div>
-        <div style={{ fontSize: "15px", paddingTop: "40px" }}>
-          리눅스(Linux) 운영체제 기반의 스토리지 서비스입니다.
-          <br /> LG 10기가망을 사용하여 속도가 빠르고 안정적인 서비스를 이용하실
-          수 있습니다.
+          KB에서 도메인을 등록하세요
         </div>
       </div>
       <div
         style={{
           backgroundColor: "#f9f4f0",
-          height: "380px",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            fontWeight: "bolder",
-            fontSize: "30px",
-            paddingTop: "100px",
-          }}
-        >
-          리눅스 스토리지 특징
-        </div>
-      </div>
-      <div
-        style={{
-          backgroundColor: "white",
           height: "380px",
           textAlign: "center",
         }}
@@ -339,7 +323,7 @@ export default function WebStorageRegister(): JSX.Element {
       </div>
       <div
         style={{
-          backgroundColor: "#f9f4f0",
+          backgroundColor: "white",
           height: "380px",
           textAlign: "center",
         }}
@@ -351,7 +335,7 @@ export default function WebStorageRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          리눅스 스토리지 사양
+          네임서버 안내
         </div>
       </div>
     </>

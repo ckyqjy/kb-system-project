@@ -1,28 +1,9 @@
-import React, { ChangeEventHandler, FormEvent, useState } from "react";
-import { useNavigate } from "react-router";
-import styles from "./NotFoundPage.module.css";
-import { Form, Input, InputNumber, Button, Select, Col, Card, Row } from "antd";
-import axios from "axios";
+import React from "react";
+import { Row, Col, Card } from "antd";
 
-export default function WebHostingRegister(): JSX.Element {
-  const [name, setName] = useState("");
-  const [form] = Form.useForm<FormState>();
-  const layout = {
-    labelCol: { span: 0 },
-    wrapperCol: { span: 8 },
-  };
-
-  interface FormState {
-    username: string;
-    domainname: string;
-    class1: string;
-    class2: string;
-    ipaddr: string;
-    description: string;
-  }
-
-  const gra1 = "#f2f6f7";
-  const gra2 = "white";
+export default function WebStorageRegister(): JSX.Element {
+  const gra1 = "#fff0e1";
+  const gra2 = "#fff8f0";
 
   return (
     <>
@@ -42,7 +23,7 @@ export default function WebHostingRegister(): JSX.Element {
             paddingTop: "30px",
           }}
         >
-          리눅스 웹호스팅
+          리눅스 웹 스토리지
         </div>
         <div
           style={{
@@ -52,72 +33,8 @@ export default function WebHostingRegister(): JSX.Element {
             textAlign: "center",
           }}
         >
-          빠른 속도와 풍부한 용량을 제공하는 KB 64bit 리눅스 호스팅을
+          빠른 속도와 풍부한 용량을 제공하는 KB 64bit 리눅스 스토리지를
           이용해보세요.
-        </div>
-        <div
-          style={{
-            paddingLeft: "35%",
-            paddingTop: "20px",
-            display: "flex",
-          }}
-        >
-          <div style={{}}>
-            <button
-              style={{
-                fontWeight: "bolder",
-                fontSize: "30px",
-                height: "100px",
-                width: "100px",
-                backgroundColor: "white",
-                border: "1px",
-                borderRight: "0px",
-                borderStyle: "solid",
-                borderColor: "#dddddd",
-                color: "white",
-              }}
-            >
-              www.
-            </button>
-            <input
-              value={name}
-              onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                setName(e.currentTarget.value);
-              }}
-              style={{
-                fontSize: "30px",
-                height: "100px",
-                width: "500px",
-                display: "inline",
-                border: "1px",
-                borderLeft: "0px",
-                borderStyle: "solid",
-                borderColor: "#dddddd",
-              }}
-              placeholder="등록하실 호스팅을 입력해주세요"
-            />
-            <button
-              onClick={() => {
-                const url = `${process.env.REACT_APP_URL}/hostingreg/${name}`;
-                axios.get(url).then((res) => res.data);
-              }}
-              style={{
-                fontSize: "30px",
-                fontWeight: "bolder",
-                height: "100px",
-                width: "100px",
-                display: "inline-block",
-                backgroundColor: "#434c53",
-                border: "1px",
-                borderStyle: "solid",
-                borderColor: "#dddddd",
-                color: "white",
-                cursor: "pointer",
-              }}
-            >
-              등록
-            </button>
-          </div>
         </div>
       </div>
       <div
@@ -128,7 +45,7 @@ export default function WebHostingRegister(): JSX.Element {
           textAlign: "center",
         }}
       >
-        호스팅 등록 할인 이벤트 / 쿠폰코드 KBEVENT
+        스토리지 등록 할인 이벤트 / 쿠폰코드 KBEVENT
       </div>
       <div style={{ padding: "50px" }}>
         <Row>
@@ -309,10 +226,6 @@ export default function WebHostingRegister(): JSX.Element {
           <Col span={1}></Col>
         </Row>
       </div>
-      <div style={{ padding: "30px", textAlign: "center" }}>
-        * 리눅스 호스팅 설치는 PHP7.4으로 세팅됩니다. 상품별 하드 용량 및 <br />
-        * 옵션차이로 인해 하위 상품으로 서비스 변경이 불가합니다.
-      </div>
       <div
         style={{
           backgroundColor: "#5ca3cf",
@@ -324,12 +237,7 @@ export default function WebHostingRegister(): JSX.Element {
         <div
           style={{ fontSize: "30px", paddingTop: "70px", fontWeight: "bolder" }}
         >
-          KB의 다양한 웹호스팅 서비스를 비교하고 선택하세요!
-        </div>
-        <div style={{ fontSize: "15px", paddingTop: "40px" }}>
-          도메인 구매시 무제한 웹호스팅 무료 서비스를 이용하실 수 있습니다.
-          <br />
-          도메인 이용 기간 내에 추가 비용 없이 무료 이용이 가능합니다.
+          KB의 다양한 스토리지 서비스를 비교하고 선택하세요!
         </div>
         <div
           style={{
@@ -347,7 +255,7 @@ export default function WebHostingRegister(): JSX.Element {
               fontWeight: "bolder",
             }}
           >
-            무제한 웹호스팅 비교하기
+            스토리지 비교하기
           </button>
         </div>
       </div>
@@ -364,10 +272,10 @@ export default function WebHostingRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          리눅스 웹호스팅이란?
+          리눅스 스토리지 서비스란?
         </div>
         <div style={{ fontSize: "15px", paddingTop: "40px" }}>
-          리눅스(Linux) 운영체제 기반의 웹호스팅 서비스입니다.
+          리눅스(Linux) 운영체제 기반의 스토리지 서비스입니다.
           <br /> LG 10기가망을 사용하여 속도가 빠르고 안정적인 서비스를 이용하실
           수 있습니다.
         </div>
@@ -386,7 +294,7 @@ export default function WebHostingRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          리눅스 웹호스팅 특징
+          리눅스 스토리지 특징
         </div>
       </div>
       <div
@@ -420,7 +328,7 @@ export default function WebHostingRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          리눅스 웹호스팅 사양
+          리눅스 스토리지 사양
         </div>
       </div>
     </>

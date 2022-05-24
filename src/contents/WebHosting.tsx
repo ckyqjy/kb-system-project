@@ -1,29 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import { Col, Card, Row } from "antd";
 import axios from "axios";
-import { Form, Input, InputNumber, Button, Select, Card, Row, Col } from "antd";
-import Meta from "antd/lib/card/Meta";
 
-export default function DNSRegister(): JSX.Element {
+export default function WebHostingRegister(): JSX.Element {
   const [name, setName] = useState("");
-  const [form] = Form.useForm<FormState>();
-
-  const layout = {
-    labelCol: { span: 0 },
-    wrapperCol: { span: 8 },
-  };
-
-  interface FormState {
-    username: string;
-    domainname: string;
-    class1: string;
-    class2: string;
-    ipaddr: string;
-    description: string;
-  }
-
-  const gra1 = "#007ec9";
-  const gra2 = "#0099c6";
+  const gra1 = "#f2f6f7";
+  const gra2 = "white";
 
   return (
     <>
@@ -36,14 +18,25 @@ export default function DNSRegister(): JSX.Element {
       >
         <div
           style={{
-            color: "white",
+            color: "#333",
             fontWeight: "bolder",
             fontSize: "30px",
             textAlign: "center",
             paddingTop: "30px",
           }}
         >
-          도메인 등록
+          리눅스 웹호스팅
+        </div>
+        <div
+          style={{
+            color: "#333",
+            fontWeight: "bolder",
+            fontSize: "20px",
+            textAlign: "center",
+          }}
+        >
+          빠른 속도와 풍부한 용량을 제공하는 KB 64bit 리눅스 호스팅을
+          이용해보세요.
         </div>
         <div
           style={{
@@ -64,6 +57,7 @@ export default function DNSRegister(): JSX.Element {
                 borderRight: "0px",
                 borderStyle: "solid",
                 borderColor: "#dddddd",
+                color: "white",
               }}
             >
               www.
@@ -83,11 +77,11 @@ export default function DNSRegister(): JSX.Element {
                 borderStyle: "solid",
                 borderColor: "#dddddd",
               }}
-              placeholder="등록하실 도메인을 입력해주세요"
+              placeholder="등록하실 호스팅을 입력해주세요"
             />
             <button
               onClick={() => {
-                const url = `${process.env.REACT_APP_URL}/dnsreg/${name}`;
+                const url = `${process.env.REACT_APP_URL}/hostingreg/${name}`;
                 axios.get(url).then((res) => res.data);
               }}
               style={{
@@ -117,7 +111,7 @@ export default function DNSRegister(): JSX.Element {
           textAlign: "center",
         }}
       >
-        도메인 등록 할인 이벤트 / 쿠폰코드 KBEVENT
+        호스팅 등록 할인 이벤트 / 쿠폰코드 KBEVENT
       </div>
       <div style={{ padding: "50px" }}>
         <Row>
@@ -141,7 +135,7 @@ export default function DNSRegister(): JSX.Element {
                     fontWeight: "bold",
                   }}
                 >
-                  국제 도메인
+                  웹 1G
                 </div>
               }
               style={{
@@ -165,10 +159,20 @@ export default function DNSRegister(): JSX.Element {
                 </div>
                 <br />
                 <button style={{ backgroundColor: "orange", border: "none" }}>
-                  쿠폰 할인가
+                  시작가 50% 할인
                 </button>
               </div>
-              <div style={{ height: "40px" }}></div>
+              <div style={{ paddingTop: "20px" }}>
+                트래픽 <span style={{ color: "#f46d00" }}>30G</span>일
+                <span style={{ color: "#f46d00" }}>1G</span>
+              </div>
+              <div>
+                디스크 <span style={{ color: "#f46d00" }}>500M</span>
+              </div>
+              <div>
+                <span style={{ color: "#f46d00" }}>DB</span> 무제한
+                <div style={{ height: "40px" }}></div>
+              </div>
             </Card>
           </Col>
           <Col span={4}>
@@ -187,7 +191,7 @@ export default function DNSRegister(): JSX.Element {
                     fontWeight: "bold",
                   }}
                 >
-                  국내 도메인
+                  웹 3G
                 </div>
               }
               style={{
@@ -211,10 +215,20 @@ export default function DNSRegister(): JSX.Element {
                 </div>
                 <br />
                 <button style={{ backgroundColor: "orange", border: "none" }}>
-                  쿠폰 할인가
+                  시작가 50% 할인
                 </button>
               </div>
-              <div style={{ height: "40px" }}></div>
+              <div style={{ paddingTop: "20px" }}>
+                트래픽 <span style={{ color: "#f46d00" }}>30G</span>일
+                <span style={{ color: "#f46d00" }}>1G</span>
+              </div>
+              <div>
+                디스크 <span style={{ color: "#f46d00" }}>500M</span>
+              </div>
+              <div>
+                <span style={{ color: "#f46d00" }}>DB</span> 무제한
+                <div style={{ height: "40px" }}></div>
+              </div>
             </Card>
           </Col>
           <Col span={4}>
@@ -233,7 +247,7 @@ export default function DNSRegister(): JSX.Element {
                     fontWeight: "bold",
                   }}
                 >
-                  개인 도메인
+                  웹 10G
                 </div>
               }
               style={{
@@ -257,16 +271,30 @@ export default function DNSRegister(): JSX.Element {
                 </div>
                 <br />
                 <button style={{ backgroundColor: "orange", border: "none" }}>
-                  쿠폰 할인가
+                  시작가 50% 할인
                 </button>
               </div>
-              <div style={{ height: "40px" }}></div>
+              <div style={{ paddingTop: "20px" }}>
+                트래픽 <span style={{ color: "#f46d00" }}>30G</span>일
+                <span style={{ color: "#f46d00" }}>1G</span>
+              </div>
+              <div>
+                디스크 <span style={{ color: "#f46d00" }}>500M</span>
+              </div>
+              <div>
+                <span style={{ color: "#f46d00" }}>DB</span> 무제한
+                <div style={{ height: "40px" }}></div>
+              </div>
             </Card>
           </Col>
           <Col span={2}></Col>
           <Col span={2}></Col>
           <Col span={1}></Col>
         </Row>
+      </div>
+      <div style={{ padding: "30px", textAlign: "center" }}>
+        * 리눅스 호스팅 설치는 PHP7.4으로 세팅됩니다. 상품별 하드 용량 및 <br />
+        * 옵션차이로 인해 하위 상품으로 서비스 변경이 불가합니다.
       </div>
       <div
         style={{
@@ -279,7 +307,7 @@ export default function DNSRegister(): JSX.Element {
         <div
           style={{ fontSize: "30px", paddingTop: "70px", fontWeight: "bolder" }}
         >
-          도메인 구매시 무제한 웹호스팅이 무료
+          KB의 다양한 웹호스팅 서비스를 비교하고 선택하세요!
         </div>
         <div style={{ fontSize: "15px", paddingTop: "40px" }}>
           도메인 구매시 무제한 웹호스팅 무료 서비스를 이용하실 수 있습니다.
@@ -302,7 +330,7 @@ export default function DNSRegister(): JSX.Element {
               fontWeight: "bolder",
             }}
           >
-            무제한 웹호스팅 바로가기
+            무제한 웹호스팅 비교하기
           </button>
         </div>
       </div>
@@ -319,7 +347,12 @@ export default function DNSRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          KB에서 도메인을 등록하세요
+          리눅스 웹호스팅이란?
+        </div>
+        <div style={{ fontSize: "15px", paddingTop: "40px" }}>
+          리눅스(Linux) 운영체제 기반의 웹호스팅 서비스입니다.
+          <br /> LG 10기가망을 사용하여 속도가 빠르고 안정적인 서비스를 이용하실
+          수 있습니다.
         </div>
       </div>
       <div
@@ -336,7 +369,7 @@ export default function DNSRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          무료 부가서비스
+          리눅스 웹호스팅 특징
         </div>
       </div>
       <div
@@ -353,7 +386,24 @@ export default function DNSRegister(): JSX.Element {
             paddingTop: "100px",
           }}
         >
-          네임서버 안내
+          무료 부가서비스
+        </div>
+      </div>
+      <div
+        style={{
+          backgroundColor: "#f9f4f0",
+          height: "380px",
+          textAlign: "center",
+        }}
+      >
+        <div
+          style={{
+            fontWeight: "bolder",
+            fontSize: "30px",
+            paddingTop: "100px",
+          }}
+        >
+          리눅스 웹호스팅 사양
         </div>
       </div>
     </>
