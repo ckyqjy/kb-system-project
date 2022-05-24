@@ -1,10 +1,11 @@
-import React from "react";
+import React, { ChangeEventHandler, FormEvent, useState } from "react";
 import { useNavigate } from "react-router";
 import styles from "./NotFoundPage.module.css";
 import { Form, Input, InputNumber, Button, Select, Col, Card, Row } from "antd";
 import axios from "axios";
 
 export default function WebHostingRegister(): JSX.Element {
+  const [name, setName] = useState("");
   const [form] = Form.useForm<FormState>();
   const layout = {
     labelCol: { span: 0 },
@@ -19,12 +20,6 @@ export default function WebHostingRegister(): JSX.Element {
     ipaddr: string;
     description: string;
   }
-
-  const onClick = () => {
-    const { username, domainname, ipaddr } = form.getFieldsValue();
-    const url = `${process.env.REACT_APP_URL}/dnsreg/${domainname}`;
-    axios.get(url).then((res) => res.data);
-  };
 
   const gra1 = "#f2f6f7";
   const gra2 = "white";
@@ -85,6 +80,10 @@ export default function WebHostingRegister(): JSX.Element {
               www.
             </button>
             <input
+              value={name}
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setName(e.currentTarget.value);
+              }}
               style={{
                 fontSize: "30px",
                 height: "100px",
@@ -98,6 +97,10 @@ export default function WebHostingRegister(): JSX.Element {
               placeholder="등록하실 호스팅을 입력해주세요"
             />
             <button
+              onClick={() => {
+                const url = `${process.env.REACT_APP_URL}/hostingreg/${name}`;
+                axios.get(url).then((res) => res.data);
+              }}
               style={{
                 fontSize: "30px",
                 fontWeight: "bolder",
@@ -109,6 +112,7 @@ export default function WebHostingRegister(): JSX.Element {
                 borderStyle: "solid",
                 borderColor: "#dddddd",
                 color: "white",
+                cursor: "pointer",
               }}
             >
               등록

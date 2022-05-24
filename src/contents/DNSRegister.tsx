@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { Form, Input, InputNumber, Button, Select, Card, Row, Col } from "antd";
 import Meta from "antd/lib/card/Meta";
 
 export default function DNSRegister(): JSX.Element {
+  const [name, setName] = useState("");
   const [form] = Form.useForm<FormState>();
+
   const layout = {
     labelCol: { span: 0 },
     wrapperCol: { span: 8 },
@@ -19,12 +21,6 @@ export default function DNSRegister(): JSX.Element {
     ipaddr: string;
     description: string;
   }
-
-  const onClick = () => {
-    const { username, domainname, ipaddr } = form.getFieldsValue();
-    const url = `${process.env.REACT_APP_URL}/dnsreg/${domainname}`;
-    axios.get(url).then((res) => res.data);
-  };
 
   const gra1 = "#007ec9";
   const gra2 = "#0099c6";
@@ -73,6 +69,10 @@ export default function DNSRegister(): JSX.Element {
               www.
             </button>
             <input
+              value={name}
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setName(e.currentTarget.value);
+              }}
               style={{
                 fontSize: "30px",
                 height: "100px",
@@ -86,6 +86,10 @@ export default function DNSRegister(): JSX.Element {
               placeholder="등록하실 도메인을 입력해주세요"
             />
             <button
+              onClick={() => {
+                const url = `${process.env.REACT_APP_URL}/dnsreg/${name}`;
+                axios.get(url).then((res) => res.data);
+              }}
               style={{
                 fontSize: "30px",
                 fontWeight: "bolder",
@@ -97,6 +101,7 @@ export default function DNSRegister(): JSX.Element {
                 borderStyle: "solid",
                 borderColor: "#dddddd",
                 color: "white",
+                cursor: "pointer",
               }}
             >
               등록
