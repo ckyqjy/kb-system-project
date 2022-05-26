@@ -10,6 +10,7 @@ import DNSRegister from "../../contents/DNS";
 import logo from "../../assets/img/logo.png";
 import Common from "../../contents/Common";
 import Main from "../../contents/Main";
+import LogView from "../../contents/LogView";
 
 export default function DefaultLayout(): JSX.Element {
   const { Header, Content } = Layout;
@@ -80,11 +81,12 @@ export default function DefaultLayout(): JSX.Element {
             path={`/${PAGE_PATH.hostingreg}`}
             element={<WebHostingRegister />}
           />
-           <Route
+          <Route
             path={`/${PAGE_PATH.storagereg}`}
             element={<WebStorageRegister />}
           />
           <Route path={`/${PAGE_PATH.dnsreg}`} element={<DNSRegister />} />
+          <Route path={`/${PAGE_PATH.logview}`} element={<LogView />} />
         </Routes>
         <Common />
       </Content>
