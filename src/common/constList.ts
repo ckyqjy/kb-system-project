@@ -5,6 +5,7 @@ export const PAGE_PATH = {
   signin: 'signin' as const,
   customers: 'customers' as const,
   logview: 'logview' as const,
+  statview: 'statview' as const,
   hostingreg: 'hostingreg' as const,
   storagereg: 'storagereg' as const,
   dnsreg: 'dnsreg' as const,

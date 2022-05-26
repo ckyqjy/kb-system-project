@@ -11,6 +11,7 @@ import logo from "../../assets/img/logo.png";
 import Common from "../../contents/Common";
 import Main from "../../contents/Main";
 import LogView from "../../contents/LogView";
+import StatView from "../../contents/StatView";
 
 export default function DefaultLayout(): JSX.Element {
   const { Header, Content } = Layout;
@@ -87,6 +88,7 @@ export default function DefaultLayout(): JSX.Element {
           />
           <Route path={`/${PAGE_PATH.dnsreg}`} element={<DNSRegister />} />
           <Route path={`/${PAGE_PATH.logview}`} element={<LogView />} />
+          <Route path={`/${PAGE_PATH.statview}`} element={<StatView />} />
         </Routes>
         <Common />
       </Content>
