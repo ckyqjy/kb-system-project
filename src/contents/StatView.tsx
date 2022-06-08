@@ -4,9 +4,14 @@ import axios from "axios";
 export default function StatView(): JSX.Element {
   const [stat, setStat] = useState("");
   useEffect(() => {
-    const url = `${process.env.REACT_APP_URL}/statview`;
-    axios.get(url).then((res) => setStat(res.data));
-  }, []);
+    const tick = setTimeout(() => {
+      const url = `${process.env.REACT_APP_URL}/statview`;
+      axios.get(url).then((res) => setStat(res.data));
+    }, 5000);
+
+    // eslint-disable-next-line consistent-return
+    return () => clearTimeout(tick);
+  }, [stat]);
 
   return (
     <>
