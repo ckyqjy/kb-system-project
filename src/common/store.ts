@@ -2,15 +2,15 @@ import {
   configureStore,
   ThunkAction,
   Action,
-  combineReducers
-} from '@reduxjs/toolkit';
-import userReducer from './slices/userSlice';
+  combineReducers,
+} from "@reduxjs/toolkit";
+import userReducer from "./slices/userSlice";
 
 const rootReducer = combineReducers({
-  userData: userReducer,
+  user: userReducer,
 });
 export const store = configureStore({
-  reducer: rootReducer
+  reducer: rootReducer,
 });
 
 export type AppDispatch = typeof store.dispatch;

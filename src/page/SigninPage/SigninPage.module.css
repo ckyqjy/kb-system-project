@@ -22,7 +22,7 @@
   margin: 40px 0px 0px 395px;
   padding: 47px 37px 54px 36px;
   border-radius: 10px;
-  background-image: linear-gradient(to top, #0082C8, #0082C8);
+  background-image: linear-gradient(to top, #0082c8, #0082c8);
   font-family: Roboto;
   font-size: 20px;
   font-weight: bold;
@@ -32,6 +32,7 @@
   border: 0px;
   color: #fff;
   position: absolute;
+  cursor: pointer;
 }
 
 .bi {
@@ -83,7 +84,7 @@
 }
 
 .background {
-  background-image: url('../../assets/img/login-bg.jpg');
+  background-image: url("../../assets/img/login-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

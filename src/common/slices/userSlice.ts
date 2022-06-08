@@ -1,33 +1,32 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type UserData = {
-  [key: string]: string;
+  userName: string;
+  userClass: string;
 };
 
 export interface UserDataState {
-  userDataList: UserData;
+  userData: UserData;
 }
 
 const initial: UserDataState = {
-    userDataList: {
-    '이병학': '테스트',
-  }
+  userData: { userName: "", userClass: "" },
 };
 
 const userSlice = createSlice({
-  name: 'userData',
+  name: "userData",
   initialState: initial,
   reducers: {
     setUserData: (
       state: UserDataState,
       { payload }: PayloadAction<UserData>
     ) => {
-      state.userDataList = payload;
+      state.userData = payload;
     },
     resetUserData: (state: UserDataState) => {
-      state.userDataList = {};
-    }
-  }
+      state.userData = { userName: "", userClass: "" };
+    },
+  },
 });
 
 export const { setUserData, resetUserData } = userSlice.actions;
